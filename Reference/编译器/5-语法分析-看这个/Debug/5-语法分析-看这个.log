@@ -1,0 +1,10 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(519,5): warning MSB8028: 中间目录(Debug\)包含从另一个项目(5-语法分析-看这个.vcxproj)共享的文件。   这会导致错误的清除和重新生成行为。
+  Complier.cpp
+  main.cpp
+H:\短期班2022\编译器\5-语法分析-看这个\main.cpp(84,11): warning C4018: “<”: 有符号/无符号不匹配
+H:\短期班2022\编译器\5-语法分析-看这个\main.cpp(102,14): warning C4018: “<”: 有符号/无符号不匹配
+H:\短期班2022\编译器\5-语法分析-看这个\main.cpp(119,14): warning C4018: “<”: 有符号/无符号不匹配
+H:\短期班2022\编译器\5-语法分析-看这个\main.cpp(141,15): warning C4018: “<”: 有符号/无符号不匹配
+H:\短期班2022\编译器\5-语法分析-看这个\main.cpp(196,15): warning C4018: “<”: 有符号/无符号不匹配
+  正在生成代码...
+  5-语法分析-看这个.vcxproj -> H:\短期班2022\编译器\Debug\6-语法分析-看这个.exe
