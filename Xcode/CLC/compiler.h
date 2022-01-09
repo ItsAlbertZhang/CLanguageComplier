@@ -8,8 +8,7 @@
 #ifndef compiler_h
 #define compiler_h
 
-//#define _CRT_SECURE_NO_WARNINGS
-//#include <Windows.h>
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -112,6 +111,17 @@ enum TokenCode {
     TK_IDENTF,      //函数名
 };
 
+enum Color {
+    COLOR_OPERATOR,     //运算符和分号逗号,用rgbi
+    COLOR_SEPARATOR,    //括号,用rbi
+    COLOR_REF,          //注释,用i
+    COLOR_NUM,          //数字常量,用bg
+    COLOR_CHAR,         //字符和字符串常量,用gr
+    COLOR_KEYWORD,      //关键字,用ri
+    COLOR_IDENTV,       //变量名,用bgi
+    COLOR_IDENTF,       //函数名,用gri
+};
+
 //拉链法构造哈希表, 用于快速查询是否已有该单词, 对于已有的单词快速查询其token编码
 typedef struct HashNode {
     //哈希表表体
@@ -146,6 +156,12 @@ int HashInitCLCkey(hashnode *arr, int len);
 node* split(char *s, node *anynode, hashnode *hashtab, int hashtablen, int row);
 //查询某单词的Token编码
 int GetToken(char *s, int strlen);
+//中间调用打印函数,Xcode环境下需要注释其中部分代码
+void PrintWithColor(char *s, int len, int color);
+
+//print.c
+//Windows下的打印函数
+void PrintAtWindows(char *s, int len, int color);
 
 
 #endif /* compiler_h */

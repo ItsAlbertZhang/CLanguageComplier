@@ -89,8 +89,7 @@ node* split(char *s, node *anynode, hashnode *hashtable, int hashtablelen, int r
             case CHAR_SEPARATOR:    //情况9:慢指针指向运算符
                 fast++;
                 if(*slow == '/' && *fast == '/') {    //之后字符串的全部为注释
-                    *slow++ = '\n';
-                    *slow = 0;  //直接把slow置0,以跳出while循环
+                    while(*++slow);
                 } else {
                     token = HashSA(hashtable, hashtablelen, slow, 1);   //哈希查询其token编码,且必定命中
                     lastnode = NodeAdd(lastnode, token, row, slow, 1);
@@ -120,4 +119,8 @@ int GetToken(char *slow, int strlen) {
             break;
     }
     return ret;
+}
+
+void PrintWithColor(char *s, int len, int color) {
+    
 }
