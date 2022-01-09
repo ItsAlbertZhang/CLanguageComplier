@@ -32,7 +32,6 @@
 		FA224B6E2789EB5E00B7CF93 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		FA224B702789EC0900B7CF93 /* compiler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = compiler.h; sourceTree = "<group>"; };
 		FA224B71278B026C00B7CF93 /* print.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = print.c; sourceTree = "<group>"; };
-		FA224B74278B0EED00B7CF93 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		FA224B75278B0EF200B7CF93 /* code.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = code.c; sourceTree = "<group>"; };
 		FA224B76278B0EF700B7CF93 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -51,7 +50,6 @@
 		FA224B562789EAC300B7CF93 = {
 			isa = PBXGroup;
 			children = (
-				FA224B74278B0EED00B7CF93 /* LICENSE */,
 				FA224B76278B0EF700B7CF93 /* README.md */,
 				FA224B75278B0EF200B7CF93 /* code.c */,
 				FA224B73278B0E4F00B7CF93 /* CLC */,
