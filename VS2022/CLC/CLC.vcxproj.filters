@@ -15,21 +15,21 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\Xcode\CLC\lexical_analysis.c">
+    <ClCompile Include="..\..\Xcode\CLC\lexical_analysis.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Xcode\CLC\library.c">
+    <ClCompile Include="..\..\Xcode\CLC\library.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Xcode\CLC\main.c">
+    <ClCompile Include="..\..\Xcode\CLC\main.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Xcode\CLC\print.c">
+    <ClCompile Include="..\..\Xcode\CLC\print.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\Xcode\CLC\compiler.h">
+    <ClInclude Include="..\..\Xcode\CLC\compiler.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

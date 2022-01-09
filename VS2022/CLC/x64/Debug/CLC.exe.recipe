@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>D:\CS\GitHub\CLanguageComplier\VS2022\CLC\x64\Debug\CLC.exe</FullPath>
+      <FullPath>D:\CS\GitHub\CLanguageComplier\VS2022\x64\Debug\CLC.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

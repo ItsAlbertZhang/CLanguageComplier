@@ -34,11 +34,5 @@ int main(int argc, char* argv[])
 	printf("This is red and green and blue.\n");
 	SetConsoleTextAttribute(h, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
 	printf("This is red and green and blue and intensity.\n");
-	// SetConsoleTextAttribute(h, FOREGROUND_GREEN | FOREGROUND_INTENSITY);//绿色
-	// printf("second\n");
-	// SetConsoleTextAttribute(h, FOREGROUND_RED | FOREGROUND_GREEN);//褐色，常量
-	// printf("third\n");
-	// SetConsoleTextAttribute(h, FOREGROUND_RED | FOREGROUND_INTENSITY);	//红色
-	// printf("fourth\n");
 	system("pause");
 }

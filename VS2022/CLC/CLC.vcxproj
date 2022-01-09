@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{504fc924-d28b-49ca-a96d-823c01789678}</ProjectGuid>
+    <ProjectGuid>{2434414e-7377-42e3-9c57-03d8b0810759}</ProjectGuid>
     <RootNamespace>CLC</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -139,13 +139,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\Xcode\CLC\lexical_analysis.c" />
-    <ClCompile Include="..\..\..\Xcode\CLC\library.c" />
-    <ClCompile Include="..\..\..\Xcode\CLC\main.c" />
-    <ClCompile Include="..\..\..\Xcode\CLC\print.c" />
+    <ClCompile Include="..\..\Xcode\CLC\lexical_analysis.c" />
+    <ClCompile Include="..\..\Xcode\CLC\library.c" />
+    <ClCompile Include="..\..\Xcode\CLC\main.c" />
+    <ClCompile Include="..\..\Xcode\CLC\print.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\Xcode\CLC\compiler.h" />
+    <ClInclude Include="..\..\Xcode\CLC\compiler.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
