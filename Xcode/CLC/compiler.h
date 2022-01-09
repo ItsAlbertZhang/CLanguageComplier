@@ -159,7 +159,7 @@ node* split(char *s, node *anynode, hashnode *hashtab, int hashtablen, int row);
 //查询某单词的Token编码
 int GetToken(char *s, int strlen);
 //中间调用打印函数,Xcode环境下需要注释其中部分代码
-void PrintWithColor(char *s, int len, int color);
+void PrintWithColor(char *s, int len, int token);
 //初始化已知词哈希表为CLC环境(将C语言关键词放入已知词哈希表)
 int HashInitCLCkey(hashnode *arr, int len);
 

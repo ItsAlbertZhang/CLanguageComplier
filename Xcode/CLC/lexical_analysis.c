@@ -29,6 +29,7 @@ node* split(char *s, node *anynode, hashnode *hashtable, int hashtablelen, int r
                     token = HashSA(hashtable, hashtablelen, slow, 1);   //哈希查询其token编码,且必定命中
                     lastnode = NodeAdd(lastnode, token, row, slow, 1);
                 }
+                PrintWithColor(slow, (int)(fast - slow), token);
                 slow = fast;
                 break;
             case CHAR_NUMBER:   //情况1:慢指针指向一个数字
@@ -45,6 +46,7 @@ node* split(char *s, node *anynode, hashnode *hashtable, int hashtablelen, int r
                     token = TK_CFLOAT;
                 }   //根据小数点是否出现过判断该数字是整型还是浮点型,对应不同的token编码
                 lastnode = NodeAdd(lastnode, token, row, slow, (int)(fast - slow));
+                PrintWithColor(slow, (int)(fast - slow), token);
                 slow = fast;
                 break;
             case CHAR_LETTER:   //情况3:慢指针指向一个字母或下划线
@@ -54,41 +56,52 @@ node* split(char *s, node *anynode, hashnode *hashtable, int hashtablelen, int r
                 }   //结束循环时,快指针的前一位为单词的最后一位
                 token = HashSA(hashtable, hashtablelen, slow, (int)(fast - slow));  //哈希查询其token编码,此时可能未命中,需要在HashSA函数依赖的GetToken函数中额外考虑
                 lastnode = NodeAdd(lastnode, token, row, slow, (int)(fast - slow));
+                PrintWithColor(slow, (int)(fast - slow), token);
                 slow = fast;
                 break;
             case CHAR_SPACE:    //情况4:慢指针指向空格
                 //空格不储存
-                fast++; slow = fast;
+                fast++;
+                PrintWithColor(slow, (int)(fast - slow), token);
+                slow = fast;
                 break;
             case CHAR_TABLE:    //情况5:慢指针指向制表符
                 //制表符不储存
-                fast++; slow = fast;
+                fast++;
+                PrintWithColor(slow, (int)(fast - slow), token);
+                slow = fast;
                 break;
             case CHAR_RETURN:    //情况6:慢指针指向回车
                 //回车不储存
-                fast++; slow = fast;
+                fast++;
+                PrintWithColor(slow, (int)(fast - slow), token);
+                slow = fast;
                 break;
             case CHAR_DOUBLEQUO:    //情况7:慢指针指向双引号
                 fast++;
                 while(*fast++ != '\"'); //循环结束时,快指针的前一位为后双引号
                 token = TK_CSTR;
                 lastnode = NodeAdd(lastnode, token, row, slow, (int)(fast - slow));
+                PrintWithColor(slow, (int)(fast - slow), token);
                 slow = fast;
                 break;
             case CHAR_SINGLEQUO:    //情况8:慢指针指向单引号
                 fast = slow + 3;
                 token = TK_CCHAR;
                 lastnode = NodeAdd(lastnode, token, row, slow, (int)(fast - slow));
+                PrintWithColor(slow, (int)(fast - slow), token);
                 slow = fast;
                 break;
             case CHAR_SEPARATOR:    //情况9:慢指针指向运算符
                 fast++;
                 if(*slow == '/' && *fast == '/') {    //之后字符串的全部为注释
-                    while(*++slow);
+                    token = TK_REF;
+                    while(*++fast);
                 } else {
                     token = HashSA(hashtable, hashtablelen, slow, 1);   //哈希查询其token编码,且必定命中
                     lastnode = NodeAdd(lastnode, token, row, slow, 1);
                 }
+                PrintWithColor(slow, (int)(fast - slow), token);
                 slow = fast;
                 break;
         }
@@ -158,6 +171,24 @@ int HashInitCLCkey(hashnode *arr, int len) {
     return 0;
 }
 
-void PrintWithColor(char *s, int len, int color) {
-    
+void PrintWithColor(char *s, int len, int token) {
+    int color = -1;
+    if(token >= TK_PLUS && token <= TK_AND || token == TK_SEMICOLON || token == TK_COMMA) {
+        color = COLOR_OPERATOR;
+    } else if(token >= TK_OPENPA && token <= TK_END) {
+        color = COLOR_SEPARATOR;
+    } else if(token == TK_REF) {
+        color = COLOR_REF;
+    } else if(token == TK_CINT || token == TK_CFLOAT) {
+        color = COLOR_NUM;
+    } else if(token == TK_CCHAR || token == TK_CSTR) {
+        color = COLOR_CHAR;
+    } else if(token >= KW_CHAR && token <= KW_SIZEOF) {
+        color = COLOR_KEYWORD;
+    } else if(token == TK_IDENTV) {
+        color = COLOR_IDENTV;
+    } else if(token == TK_IDENTF) {
+        color = COLOR_IDENTF;
+    }
+    PrintAtWindows(s, len, color);
 }

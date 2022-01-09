@@ -28,7 +28,7 @@ int main(int argc, const char * argv[]) {
         while(fgets(s, sizeof(s), fp) != NULL) {
             row++;
             lastnode = split(s, lastnode, hashtable, HASH_MAX, row);
-            fputs(s, stdout);
+            //fputs(s, stdout);
         }
         printf("This is a breakpoint to Debug.\n");
     }
