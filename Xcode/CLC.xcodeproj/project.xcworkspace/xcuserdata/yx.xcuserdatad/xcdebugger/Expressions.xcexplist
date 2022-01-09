@@ -10,5 +10,11 @@
             </PersistentString>
          </PersistentStrings>
       </ContextState>
+      <ContextState
+         contextName = "HashSA:library.c">
+      </ContextState>
+      <ContextState
+         contextName = "HashInsert:library.c">
+      </ContextState>
    </ContextStates>
 </VariablesViewState>

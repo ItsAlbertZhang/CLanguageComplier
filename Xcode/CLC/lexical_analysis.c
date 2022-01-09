@@ -7,11 +7,6 @@
 
 #include "compiler.h"
 
-//初始化已知词哈希表为CLC环境(将C语言关键词放入已知词哈希表)
-int HashInitCLCkey(hashnode *arr, int len) {
-    return 0;
-}
-
 //将字符串分割为单词存储, 并将其打印输出
 node* split(char *s, node *anynode, hashnode *hashtable, int hashtablelen, int row) {
     node *lastnode = anynode;
@@ -119,6 +114,48 @@ int GetToken(char *slow, int strlen) {
             break;
     }
     return ret;
+}
+
+//初始化已知词哈希表为CLC环境(将C语言关键词放入已知词哈希表)
+int HashInitCLCkey(hashnode *arr, int len) {
+    HashInsert(arr, len, "+", 1, TK_PLUS);
+    HashInsert(arr, len, "-", 1, TK_MINUS);
+    HashInsert(arr, len, "*", 1, TK_MUL);
+    HashInsert(arr, len, "/", 1, TK_DIVIDE);
+    HashInsert(arr, len, "%", 1, TK_MOD);
+    HashInsert(arr, len, "=", 1, TK_ASSIGN);
+    HashInsert(arr, len, "==", 2, TK_EQ);
+    HashInsert(arr, len, "!=", 2, TK_NEQ);
+    HashInsert(arr, len, "<", 1, TK_LT);
+    HashInsert(arr, len, "<=", 2, TK_LEQ);
+    HashInsert(arr, len, ">", 1, TK_GT);
+    HashInsert(arr, len, ">=", 2, TK_GEQ);
+    HashInsert(arr, len, "->", 2, TK_POINTSTO);
+    HashInsert(arr, len, ".", 1, TK_DOT);
+    HashInsert(arr, len, "&", 1, TK_AND);
+    HashInsert(arr, len, "(", 1, TK_OPENPA);
+    HashInsert(arr, len, ")", 1, TK_CLOSEPA);
+    HashInsert(arr, len, "[", 1, TK_OPENBR);
+    HashInsert(arr, len, "]", 1, TK_CLOSEBR);
+    HashInsert(arr, len, "{", 1, TK_BEGIN);
+    HashInsert(arr, len, "}", 1, TK_END);
+    HashInsert(arr, len, ";", 1, TK_SEMICOLON);
+    HashInsert(arr, len, ",", 1, TK_COMMA);
+    HashInsert(arr, len, "//", 2, TK_REF);
+    HashInsert(arr, len, "char", 4, KW_CHAR);
+    HashInsert(arr, len, "short", 5, KW_SHORT);
+    HashInsert(arr, len, "int", 3, KW_INT);
+    HashInsert(arr, len, "void", 4, KW_VOID);
+    HashInsert(arr, len, "struct", 6, KW_STRUCT);
+    HashInsert(arr, len, "if", 2, KW_IF);
+    HashInsert(arr, len, "else", 4, KW_ELSE);
+    HashInsert(arr, len, "for", 3, KW_FOR);
+    HashInsert(arr, len, "while", 5, KW_WHILE);
+    HashInsert(arr, len, "continue", 8, KW_CONTINUE);
+    HashInsert(arr, len, "break", 5, KW_BREAK);
+    HashInsert(arr, len, "return", 6, KW_RETURN);
+    HashInsert(arr, len, "sizeof", 6, KW_SIZEOF);
+    return 0;
 }
 
 void PrintWithColor(char *s, int len, int color) {

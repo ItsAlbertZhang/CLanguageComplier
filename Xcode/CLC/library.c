@@ -83,7 +83,7 @@ int HashSA(hashnode *arr, int hashtablelen, char *s, int strlen) {
     //查询该单词
     while(maynode->next) {
         maynode = maynode->next;
-        if(0 == strcmp(maynode->word, s)) { //找到该单词
+        if(0 == mystrcmp(maynode->word, s, strlen)) { //找到该单词
             ret = maynode->token;   //返回该单词的token编码
             break;
         }
@@ -99,3 +99,27 @@ int HashSA(hashnode *arr, int hashtablelen, char *s, int strlen) {
     return ret;
 }
 
+//已知词哈希表初始化插入
+int HashInsert(hashnode *arr, int hashtablelen, char *s, int strlen, int token) {
+    int i = elf_hash(s, strlen);    //进行哈希处理
+    hashnode *lastnode = &arr[i];
+    while(lastnode->next) {
+        lastnode = lastnode->next;
+    }
+    hashnode *newnode = (hashnode*)malloc(sizeof(hashnode));
+    newnode->token = token;
+    memcpy(newnode->word, s, sizeof(char) * strlen);
+    newnode->word[strlen] = '\0';
+    newnode->next = NULL;
+    lastnode->next = newnode;
+    return token;
+}
+
+//两个已知长度但无结束符的字符串比较
+int mystrcmp(const char *str1, const char *str2, int len) {
+    int ret = 0;
+    for(int i = 0; i < len && ret == 0; i++) {
+        ret = str1[i] - str2[i];
+    }
+    return ret;
+}

@@ -23,13 +23,13 @@ int main(int argc, const char * argv[]) {
         hashnode hashtable[HASH_MAX];  //定义一个已知词哈希表, 用于快速查询是否已有某单词, 对于已有的单词快速查询其token编码
         //hashtable数组的每个成员都是一个带头结点的链表头(即拉链法的拉链头),表头不存储实际信息,其next指向的才是第一个实际结点.
         HashInit(hashtable, HASH_MAX);  //初始化已知词哈希表
+        HashInitCLCkey(hashtable, HASH_MAX);
         //从文件中逐行读取, 每次读取一行, 并将读取到的内容存储至str数组
         while(fgets(s, sizeof(s), fp) != NULL) {
             row++;
             lastnode = split(s, lastnode, hashtable, HASH_MAX, row);
             fputs(s, stdout);
         }
-        int temp123 = GetCharType('\r');
         printf("This is a breakpoint to Debug.\n");
     }
     fclose(fp); //关闭文件

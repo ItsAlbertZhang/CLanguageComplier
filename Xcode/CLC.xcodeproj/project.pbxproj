@@ -10,7 +10,6 @@
 		FA224B6B2789EB3000B7CF93 /* lexical_analysis.c in Sources */ = {isa = PBXBuildFile; fileRef = FA224B6A2789EB3000B7CF93 /* lexical_analysis.c */; };
 		FA224B6D2789EB4E00B7CF93 /* library.c in Sources */ = {isa = PBXBuildFile; fileRef = FA224B6C2789EB4E00B7CF93 /* library.c */; };
 		FA224B6F2789EB5E00B7CF93 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = FA224B6E2789EB5E00B7CF93 /* main.c */; };
-		FA224B72278B026C00B7CF93 /* print.c in Sources */ = {isa = PBXBuildFile; fileRef = FA224B71278B026C00B7CF93 /* print.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,7 +30,6 @@
 		FA224B6C2789EB4E00B7CF93 /* library.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = library.c; sourceTree = "<group>"; };
 		FA224B6E2789EB5E00B7CF93 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		FA224B702789EC0900B7CF93 /* compiler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = compiler.h; sourceTree = "<group>"; };
-		FA224B71278B026C00B7CF93 /* print.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = print.c; sourceTree = "<group>"; };
 		FA224B75278B0EF200B7CF93 /* code.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = code.c; sourceTree = "<group>"; };
 		FA224B76278B0EF700B7CF93 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -70,7 +68,6 @@
 			children = (
 				FA224B702789EC0900B7CF93 /* compiler.h */,
 				FA224B6A2789EB3000B7CF93 /* lexical_analysis.c */,
-				FA224B71278B026C00B7CF93 /* print.c */,
 				FA224B6C2789EB4E00B7CF93 /* library.c */,
 				FA224B6E2789EB5E00B7CF93 /* main.c */,
 			);
@@ -135,7 +132,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA224B6B2789EB3000B7CF93 /* lexical_analysis.c in Sources */,
-				FA224B72278B026C00B7CF93 /* print.c in Sources */,
 				FA224B6D2789EB4E00B7CF93 /* library.c in Sources */,
 				FA224B6F2789EB5E00B7CF93 /* main.c in Sources */,
 			);

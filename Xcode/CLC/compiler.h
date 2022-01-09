@@ -148,16 +148,20 @@ int elf_hash(char* s, int strlen);
 int HashInit(hashnode *arr, int len);
 //已知词哈希表的查询(S,search)和添加(A,add)
 int HashSA(hashnode *arr, int hashtablelen, char *s, int strlen);
+//已知词哈希表初始化插入
+int HashInsert(hashnode *arr, int hashtablelen, char *s, int strlen, int token);
+//两个已知长度但无结束符的字符串比较
+int mystrcmp(const char *str1, const char *str2, int len);
 
 //lexical_analysis.c
-//初始化已知词哈希表为CLC环境(将C语言关键词放入已知词哈希表)
-int HashInitCLCkey(hashnode *arr, int len);
 //将字符串分割为单词存储, 并将其打印输出
 node* split(char *s, node *anynode, hashnode *hashtab, int hashtablen, int row);
 //查询某单词的Token编码
 int GetToken(char *s, int strlen);
 //中间调用打印函数,Xcode环境下需要注释其中部分代码
 void PrintWithColor(char *s, int len, int color);
+//初始化已知词哈希表为CLC环境(将C语言关键词放入已知词哈希表)
+int HashInitCLCkey(hashnode *arr, int len);
 
 //print.c
 //Windows下的打印函数
