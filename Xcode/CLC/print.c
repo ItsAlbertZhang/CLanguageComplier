@@ -21,7 +21,7 @@ void PrintAtWindows(char *s, int len, int color) {
 		SetConsoleTextAttribute(h, FOREGROUND_INTENSITY);
 		break;
 	case COLOR_NUM:
-		SetConsoleTextAttribute(h, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+		SetConsoleTextAttribute(h, FOREGROUND_BLUE | FOREGROUND_INTENSITY);
 		break;
 	case COLOR_CHAR:
 		SetConsoleTextAttribute(h, FOREGROUND_RED | FOREGROUND_GREEN);

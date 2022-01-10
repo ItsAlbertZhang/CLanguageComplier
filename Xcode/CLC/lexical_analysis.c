@@ -49,7 +49,7 @@ node* split(char *s, node *anynode, hashnode *hashtable, int hashtablelen, int r
                 PrintWithColor(slow, (int)(fast - slow), token);
                 slow = fast;
                 break;
-            case CHAR_LETTER:   //情况3:慢指针指向一个字母或下划线
+            case CHAR_LETTER:   //情况2:慢指针指向一个字母或下划线
                 //这种情况较为复杂,原因在于单词的哈希查询可能未命中,此时需要判断其为变量名还是函数名
                 while(GetCharType(*fast) == CHAR_LETTER || GetCharType(*fast) == CHAR_NUMBER) {
                     fast++;
@@ -59,25 +59,25 @@ node* split(char *s, node *anynode, hashnode *hashtable, int hashtablelen, int r
                 PrintWithColor(slow, (int)(fast - slow), token);
                 slow = fast;
                 break;
-            case CHAR_SPACE:    //情况4:慢指针指向空格
+            case CHAR_SPACE:    //情况3:慢指针指向空格
                 //空格不储存
                 fast++;
                 PrintWithColor(slow, (int)(fast - slow), token);
                 slow = fast;
                 break;
-            case CHAR_TABLE:    //情况5:慢指针指向制表符
+            case CHAR_TABLE:    //情况4:慢指针指向制表符
                 //制表符不储存
                 fast++;
                 PrintWithColor(slow, (int)(fast - slow), token);
                 slow = fast;
                 break;
-            case CHAR_RETURN:    //情况6:慢指针指向回车
+            case CHAR_RETURN:    //情况5:慢指针指向回车
                 //回车不储存
                 fast++;
                 PrintWithColor(slow, (int)(fast - slow), token);
                 slow = fast;
                 break;
-            case CHAR_DOUBLEQUO:    //情况7:慢指针指向双引号
+            case CHAR_DOUBLEQUO:    //情况6:慢指针指向双引号
                 fast++;
                 while(*fast++ != '\"'); //循环结束时,快指针的前一位为后双引号
                 token = TK_CSTR;
@@ -85,14 +85,14 @@ node* split(char *s, node *anynode, hashnode *hashtable, int hashtablelen, int r
                 PrintWithColor(slow, (int)(fast - slow), token);
                 slow = fast;
                 break;
-            case CHAR_SINGLEQUO:    //情况8:慢指针指向单引号
+            case CHAR_SINGLEQUO:    //情况7:慢指针指向单引号
                 fast = slow + 3;
                 token = TK_CCHAR;
                 lastnode = NodeAdd(lastnode, token, row, slow, (int)(fast - slow));
                 PrintWithColor(slow, (int)(fast - slow), token);
                 slow = fast;
                 break;
-            case CHAR_SEPARATOR:    //情况9:慢指针指向运算符
+            case CHAR_SEPARATOR:    //情况8:慢指针指向运算符
                 fast++;
                 if(*slow == '/' && *fast == '/') {    //之后字符串的全部为注释
                     token = TK_REF;
